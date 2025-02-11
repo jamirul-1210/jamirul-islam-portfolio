@@ -22,7 +22,7 @@ const Hero = () => {
             <p className="text-xl text-muted-foreground">{info.description}</p>
             <div className="flex gap-4">
               <a href={info.resumeLink} target="_blank" rel="noreferrer noopener">
-                <ShimmerButton className="shadow-2xl">
+                <ShimmerButton className="shadow-2xl" shimmerDuration="1.5s">
                   <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
                     Download CV
                   </span>

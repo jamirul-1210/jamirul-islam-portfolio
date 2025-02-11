@@ -12,7 +12,7 @@ export const info = {
 export const socialLinks = {
     github:"https://github.com/jamirul-1210",
     linkedIn:"https://www.linkedin.com/in/jamirul/",
-    twitter:"#",
+    twitter:"https://x.com/myself_jamirul",
     mail:`mailto:${info.email}`
 }
 
