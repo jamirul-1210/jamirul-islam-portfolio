@@ -4,9 +4,9 @@ import { Card } from "@/components/ui/card";
 import { Tabs, TabsTrigger } from "@/components/ui/tabs";
 import { TabsList } from "@radix-ui/react-tabs";
 import { ExternalLink, FolderGit2, Github } from "lucide-react";
-import { projects } from "@/lib/data";
+import { projects, socialLinks } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
-import Image from 'next/image'
+// import Image from 'next/image'
 
 const ProjectList = () => {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -54,33 +54,32 @@ const ProjectList = () => {
             </TabsTrigger>
           </TabsList>
         </Tabs>
+        {/* empty project view */}
         {filteredProjects.length === 0 && <EmptyProjects />}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {filteredProjects.map((project, index) => (
             <Card key={index} className="overflow-hidden group cursor-pointer">
               <div className="relative">
-                <Image
+                <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover transition-transform"
                 />
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
                   {project.liveUrl && (
-                                      <a
-                                      href={project.liveUrl}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      
-                                    >
-                                      <Button size="sm" variant="secondary">
-                                        <ExternalLink className="w-4 h-4 mr-2" />
-                                        Live Demo
-                                      </Button>
-                                    </a>
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button size="sm" variant="secondary">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo
+                      </Button>
+                    </a>
                   )}
-                  {
-                    project.githubUrl && (
-                      <a
+                  {project.githubUrl && (
+                    <a
                       href={project.githubUrl ? project.githubUrl : "#"}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -94,8 +93,7 @@ const ProjectList = () => {
                         Code
                       </Button>
                     </a>
-                    )
-                  }
+                  )}
                 </div>
               </div>
               <div className="p-6">
@@ -130,10 +128,13 @@ function EmptyProjects() {
         There are no projects to display at the moment. Projects will appear
         here once they're added to the portfolio.
       </p>
+      <a href={socialLinks.github} target="_blank" rel="noopener noreferrer">
       <Button variant="outline" size="lg">
         <Github className="w-4 h-4 mr-2" />
         View GitHub Profile
       </Button>
+      </a>
+
     </div>
   );
 }
